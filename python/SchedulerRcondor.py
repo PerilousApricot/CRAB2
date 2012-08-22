@@ -5,14 +5,14 @@ Implements the vanilla (local) Remote Condor scheduler
 from SchedulerGrid  import SchedulerGrid
 from crab_exceptions import CrabException
 from crab_util import runCommand
-#from WMCore.SiteScreening.BlackWhiteListParser import CEBlackWhiteListParser
 from WMCore.SiteScreening.BlackWhiteListParser import SEBlackWhiteListParser
-
+import Scram
 
 
 import common
 import os
 import socket
+import re
 
 # FUTURE: for python 2.4 & 2.6
 try:
@@ -31,11 +31,14 @@ class SchedulerRcondor(SchedulerGrid) :
     def __init__(self):
         SchedulerGrid.__init__(self,"RCONDOR")
         self.rcondorHost   = os.getenv('RCONDOR_HOST')
+        if self.rcondorHost == None:
+            raise CrabException('FATAL ERROR: env.var RCONDOR_HOST not defined')
         self.datasetPath   = None
         self.selectNoInput = None
         self.OSBsize = 50*1000*1000 # 50 MB
 
         self.environment_unique_identifier = None
+
         return
 
 
@@ -49,19 +52,11 @@ class SchedulerRcondor(SchedulerGrid) :
         self.proxyValid=0
         self.dontCheckProxy=int(cfg_params.get("GRID.dont_check_proxy",0))
         self.space_token = cfg_params.get("USER.space_token",None)
-        try:
-            self.proxyServer = Downloader("http://cmsdoc.cern.ch/cms/LCG/crab/config/").config("myproxy_server.conf")
-            self.proxyServer = self.proxyServer.strip()
-            if self.proxyServer is None:
-                raise CrabException("myproxy_server.conf retrieved but empty")
-        except Exception, e:
-            common.logger.info("Problem setting myproxy server endpoint: using myproxy.cern.ch")
-            common.logger.debug(e)
-            self.proxyServer= 'myproxy.cern.ch'
+        self.proxyServer= 'myproxy.cern.ch'
         self.group = cfg_params.get("GRID.group", None)
         self.role = cfg_params.get("GRID.role", None)
         self.VO = cfg_params.get('GRID.virtual_organization','cms')
-
+        
         try:
             tmp =  cfg_params['CMSSW.datasetpath']
             if tmp.lower() == 'none':
@@ -72,6 +67,13 @@ class SchedulerRcondor(SchedulerGrid) :
                 self.selectNoInput = 0
         except KeyError:
             msg = "Error: datasetpath not defined "
+            raise CrabException(msg)
+
+        if cfg_params.get('GRID.ce_black_list', None) or \
+           cfg_params.get('GRID.ce_white_list', None) :
+            msg="BEWARE: scheduler RGLIDEIN ignores CE black/white lists."
+            msg+="\n Remove them from crab configuration to proceed."
+            msg+="\n Use GRID.se_white_list and/or GRID.se_black_list instead"
             raise CrabException(msg)
 
         self.checkProxy()
@@ -105,6 +107,18 @@ class SchedulerRcondor(SchedulerGrid) :
         seString=self.blackWhiteListParser.cleanForBlackWhiteList(seDest)
 
         jobParams += '+DESIRED_SEs = "'+seString+'"; '
+
+        scram = Scram.Scram(None)
+        cmsVersion = scram.getSWVersion()
+        scramArch  = scram.getArch()
+        
+        cmsver=re.split('_', cmsVersion)
+        numericCmsVersion = "%s%.2d%.2d" %(cmsver[1], int(cmsver[2]), int(cmsver[3]))
+
+        jobParams += '+DESIRED_CMSVersion ="' +cmsVersion+'";'
+        jobParams += '+DESIRED_CMSVersionNr ="' +numericCmsVersion+'";'
+        jobParams += '+DESIRED_CMSScramArch ="' +scramArch+'";'
+        
         myschedName = self.rcondorHost
         jobParams += '+Glidein_MonitorID = "https://'+ myschedName + '//$(Cluster).$(Process)"; '
 
@@ -124,42 +138,19 @@ class SchedulerRcondor(SchedulerGrid) :
         Return dictionary with specific parameters, to use with real scheduler
         is called when scheduler is initialized in Boss, i.e. at each crab command
         """
+        #SB this method is used to pass directory names to Boss Scheduler
+        # via params dictionary
 
-        tmpDir = os.path.join(common.work_space.shareDir(),'.condor_temp')
-        tmpDir = os.path.join(common.work_space.shareDir(),'.condor_temp')
         jobDir = common.work_space.jobDir()
-
         taskDir=common.work_space.topDir().split('/')[-2]
-        rcondorDir ='%s/.rcondor/%s/mount/' % (os.getenv('HOME'),self.rcondorHost)
-
-        if (self.EDG_clock_time):
-            jobParams += '+MaxWallTimeMins = '+self.EDG_clock_time+'; '
-        else:
-            jobParams += '+MaxWallTimeMins = %d; ' % (60*24)
-
-        common._db.updateTask_({'jobType':jobParams})
-
-
-        return jobParams
-
-
-    def realSchedParams(self, cfg_params):
-        """
-        Return dictionary with specific parameters, to use with real scheduler
-        is called when scheduler is initialized in Boss, i.e. at each crab command
-        """
-
-        tmpDir = os.path.join(common.work_space.shareDir(),'.condor_temp')
-        tmpDir = os.path.join(common.work_space.shareDir(),'.condor_temp')
-        jobDir = common.work_space.jobDir()
-
-        taskDir=common.work_space.topDir().split('/')[-2]
-        rcondorDir ='%s/.rcondor/%s/mount/' % (os.getenv('HOME'),self.rcondorHost)
-        tmpDir = os.path.join(rcondorDir,taskDir)
-        tmpDir = os.path.join(tmpDir,'condor_temp')
+        shareDir = common.work_space.shareDir()
+        #SBtmpDir = common.work_space.tmpDir()
         
-        params = {'tmpDir':tmpDir,
-                  'jobDir':jobDir}
+        params = {'rcondorHost':self.rcondorHost,
+                  'shareDir':shareDir,
+                  #SB'tmpDir':tmpDir,
+                  'jobDir':jobDir,
+                  'taskDir':taskDir}
 
         return params
 

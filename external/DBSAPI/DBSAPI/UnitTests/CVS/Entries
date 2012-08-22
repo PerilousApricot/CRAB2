@@ -1,0 +1,44 @@
+/Readme.txt/1.1/Mon Feb  5 15:37:16 2007//TDBS_2_0_9_patch_8
+/compareInstances.py/1.2/Wed Mar  4 17:36:38 2009//TDBS_2_0_9_patch_8
+/continous_read.sh/1.1/Mon Feb  5 15:37:16 2007//TDBS_2_0_9_patch_8
+/continous_read.stats.sh/1.1/Mon Feb  5 15:37:16 2007//TDBS_2_0_9_patch_8
+/dbsAPIUnitTests.py/1.2/Tue Sep 29 15:09:31 2009//TDBS_2_0_9_patch_8
+/dbsCgiRead.py/1.1/Tue Feb 13 15:27:16 2007//TDBS_2_0_9_patch_8
+/dbsDDqlUnitTest.py/1.1/Thu Jun  4 08:46:49 2009//TDBS_2_0_9_patch_8
+/dbsInsertBulkData.py/1.2/Mon Feb  5 16:46:23 2007//TDBS_2_0_9_patch_8
+/dbsInsertBulkDataWithDBSBlkMgmt.py/1.2/Mon Feb  5 16:46:23 2007//TDBS_2_0_9_patch_8
+/dbsInsertUnitTests.py/1.21/Mon Mar  2 22:48:51 2009//TDBS_2_0_9_patch_8
+/dbsInsertUnitTestsWithDBSBlkMgmt.py/1.2/Mon Feb  5 16:46:23 2007//TDBS_2_0_9_patch_8
+/dbsListUnitTests.py/1.19/Fri Jan 30 21:29:54 2009//TDBS_2_0_9_patch_8
+/dbsPostDeployQLTest.py/1.3/Fri May 29 10:01:09 2009//TDBS_2_0_9_patch_8
+/dbsQLUnitTests.py/1.2/Sat May 30 05:44:12 2009//TDBS_2_0_9_patch_8
+/dbsStressTest.py/1.4/Fri Mar 30 19:03:03 2007//TDBS_2_0_9_patch_8
+/dbsStressTest.sh/1.1/Mon Feb  5 15:37:16 2007//TDBS_2_0_9_patch_8
+/dbsStressTest4READ.py/1.6/Thu May  3 21:42:04 2007//TDBS_2_0_9_patch_8
+/dbsStressTest4READ.sh/1.5/Fri Mar 30 19:03:03 2007//TDBS_2_0_9_patch_8
+/dbsStressTest4READTier0_DummyData.py/1.1/Thu May  3 21:42:04 2007//TDBS_2_0_9_patch_8
+/dbsStressTestCGI4READ.sh/1.2/Fri Feb 16 18:14:22 2007//TDBS_2_0_9_patch_8
+/dbsStressTestListFiles.py/1.5/Fri Mar 30 19:03:04 2007//TDBS_2_0_9_patch_8
+/dbsStressTestTiny.sh/1.1/Mon Feb  5 15:37:16 2007//TDBS_2_0_9_patch_8
+/dbsTestCommandLine.py/1.1/Thu Feb 26 15:21:13 2009//TDBS_2_0_9_patch_8
+/dbsUnitTestApi.py/1.2/Mon Feb  5 16:46:23 2007//TDBS_2_0_9_patch_8
+/dbsUnitTests.py/1.3/Tue Jun  9 14:44:43 2009//TDBS_2_0_9_patch_8
+/dbsViewsUnitTests.py/1.9/Wed Nov  4 17:08:44 2009//TDBS_2_0_9_patch_8
+/dbs_view_check.sql/1.2/Mon Jun  1 12:34:59 2009//TDBS_2_0_9_patch_8
+/dbs_views_t.py/1.4/Fri Oct  9 18:17:56 2009//TDBS_2_0_9_patch_8
+/dbsqlTest.py/1.4/Mon Mar  2 22:28:50 2009//TDBS_2_0_9_patch_8
+/deprecate.runAllTestsWithDBSBlkMgmt.sh/1.1/Thu Dec  4 21:16:00 2008//TDBS_2_0_9_patch_8
+/qlTest.py/1.2/Mon Feb 23 15:25:38 2009//TDBS_2_0_9_patch_8
+/queries.txt/1.23/Wed Jan 20 15:13:14 2010//TDBS_2_0_9_patch_8
+/runAllTests.sh/1.4/Sat Jun  2 03:55:17 2007//TDBS_2_0_9_patch_8
+/runInsertBulkData.sh/1.1/Mon Feb  5 15:37:16 2007//TDBS_2_0_9_patch_8
+/runInsertBulkDataWithDBSBlkMgmt.sh/1.1/Mon Feb  5 15:37:16 2007//TDBS_2_0_9_patch_8
+/run_in_back.sh/1.1/Mon Feb  5 15:37:16 2007//TDBS_2_0_9_patch_8
+/testCLI.sh/1.1/Fri Mar  6 22:15:30 2009//TDBS_2_0_9_patch_8
+/validate.py/1.31/Thu Jan 21 22:41:49 2010//TDBS_2_0_9_patch_8
+/validateMigration.py/1.5/Thu Jan 21 22:43:08 2010//TDBS_2_0_9_patch_8
+D/TestSuite////
+D/UnitTests204////
+D/UnitTests205////
+D/UnitTests206////
+D/stresstest////

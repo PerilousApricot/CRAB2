@@ -1,0 +1,186 @@
+find file where file.release=CMSSW_1_7_1
+find file,file.status,file.type where procds.release=CMSSW_1_7_1
+find file.id,lumi.id   where procds.release=CMSSW_1_7_1
+find file.name, file.createdate where run.number=35672 and run.moddate>2
+find file,file.size,dataset where procds.name=Online and file.size>546294916
+find  file,    lumi    where    dataset  =   /CalPrivateGlobal-default/Online/RAW
+find lumi where dataset=/CalPrivateGlobal-default/Online/RAW and procds.release=CMSSW_1_7_1
+find count(file) where dataset = /test_primary_001/TestProcessedDS002/GEN-SIM or run > 0
+find file.release,file where dataset=/CalPrivateGlobal-default/Online/RAW and procds.release=CMSSW_1_7_1
+find count(run) where run.number > 1 and run.number < 888800
+find lumi.id,file where dataset = /test_primary_001/TestProcessedDS002/GEN-SIM
+find run where run.number>1 and run.number<100
+find run.count where run.number > 1 and run.number < 100
+find run.count where run > 1 and run < 100
+find run.count where dataset=/CalPrivateGlobal-default/Online/RAW
+find file,run,lumi  where dataset=/GlobalMar08-Express/Online/RAW and file.type = STREAMER
+find file, run,lumi where dataset like %Online%
+find run,lumi where dataset like %Online%
+find run,lumi,file where dataset  like  %Online%
+find file.release   where  dataset=/CalPrivateGlobal-default/Online/RAW
+find primds where primds.name like %test%
+find dataset
+find procds, procds.createdate
+find primds
+find procds.createby, run.modby
+find file, procds.createby where  file.modby like %sekhri% and dataset = /CalPrivateGlobal-default/Online/RAW
+find file where file.modby like %sekhri%
+find procds.parent,procds.name,file,file.parent  where procds.parent like %
+find file where file.createby like %sekhri% or file.createby = abc
+find file.parent,file where file.name = NEW_TEST0005
+find lumi.id,file.id where dataset in (/CalPrivateGlobal-default/Online/RAW,/GlobalMar08-Express/Online/RAW)
+find file,file.parent,run,dataset where file.parent like %NEW% or file.parent like %
+find file.id,lumi.id,dataset   where procds.release=CMSSW_1_7_1
+find file.createby,file.modby where file.createby like %sekhri% or file.modby like %sekhri% and file.createby like %sek%
+#find procds, procds.createdate,run,lumi.moddate where run.number in (1,2,3)
+find run, run.numevents, run.numlss, run.starttime, run.endtime
+find dataset  where site = T1_FR_CCIN2P3
+find file where run > 1 and run < 1000000
+find procds.status  where dataset = /CalPrivateGlobal-default/Online/RAW
+find procds, procds.era, procds.tag
+find procds, procds.era, procds.tag where dataset = /CalPrivateGlobal-default/Online/RAW
+find site
+find run, run.createdate where run.createdate > 2008-05-01 12:05:12 order by run, run.createdate
+find file.parent, file where dataset = /test_primary_001/TestProcessedDS002/GEN-SIM
+find procds.parent,procds.name  where procds.name like %Test% or procds.parent like %
+find file.release   where  dataset=/CalPrivateGlobal-default/Online/RAW  or dataset=/abc/Online/RAW
+find file where dq = TIB_DCS=UNKNOWN&Tracker_Global=GOOD&TIB_Local=GOOD and dataset = /Bd2PiKp/CMSSW_1_6_7-CSA07-1193556527/RECO
+find dataset, procds.createdate where dq = Tracker_Global=GOOD&TIB_Local=GOOD and dataset = /Bd2PiKp/CMSSW_1_6_7-CSA07-1193556527/RECO
+#find file,lumi,dataset where dq = Tracker_Global=GOOD&TIB_Local=GOOD&TIB_DCS=UNKNOWN or file.size > 1000 and dataset=/Bd2PiKp/CMSSW_1_6_7-CSA07-1193556527/RECO
+find file, file.tier
+find file where file.tier = GEN
+find run where release = test_Ver1_eaf67699-b539-487d-8713-07df617379db
+find block , dataset where site = srm-disk.pic.es
+find procds,file where procds.tier = GEN
+find procds,file,file.tier where dataset like *
+find file where site in ( srm-disk.pic.es, castorsrm.cr)
+find procds,file where procds.tier in (GEN,SIM,RAW)
+find ads,file
+find release where file like *
+find release where dataset like *
+find release where dataset like * or file like *
+find release where procds like * or file like *
+find file.release where procds like * or file like *
+find file,run,lumi where ads.name = MyAds
+find lumi,ads
+find ads, ads.type, ads.status, ads.createby
+find file,lumi where ads.name = /TestPrimary_001_20080501_10h06m06s/TestProcessed_20080501_10h06m06s/GEN-SIM/TestAnalysisDSDef_005_20080501_10h06m06s
+find ads, ads.dataset
+find file,run,lumi where ads.name in ( MyAds, Myades )
+find ads,file where dataset = /TestPrimary_001_20080501_10h06m06s/TestProcessed_20080501_10h06m06s/GEN-SIM
+find ads, ads.def, file
+find dataset.parent where dataset = /test_primary_001/TestProcessedDS002/GEN-SIM and file.createdate > 0
+find lumi.startevnum, lumi.endevnum, lumi.id where file.createdate > 0
+find file where lumi.evnum  = 150
+find lumi, dataset where lumi.evnum  = 150
+find file, file.createdate where  file.createdate = 2007-04-20 
+find file, file.createdate where  file.createdate = 2007-04-20 11:27:21 CDT  or file.moddate > 2008
+find file, file.createdate where  file.createdate = 2007-04-20 11:27:21
+find run, run.createdate where run.createdate = 2008-05-01 12:05:12 order by run
+find run, run.createdate where run.createdate = 2008-05-01 12:05
+find run, run.createdate where run.createdate = 2008-05-01 12
+find run, run.createdate where run.createdate = 2008-05-01
+find run, run.createdate where run.createdate = 2008
+find run, run.createdate where run.createdate < 2008
+find run, run.createdate where run.createdate > 2008
+find run,file  order by file
+find run,file where dataset = /test_primary_001/TestProcessedDS002/GEN-SIM  order by file
+find run where primds = test_primary_001
+find count(file), dataset where dataset like *
+find sum(file.size), dataset where file.size > 0
+find file, dataset where release = test_Ver1_eaf67699-b539-487d-8713-07df617379db
+find file where release = test_Ver1_eaf67699-b539-487d-8713-07df617379db
+find dataset where release = test_Ver1_eaf67699-b539-487d-8713-07df617379db
+find block
+find block, block.size, block.numfiles, block.numevents, block.status, block.createdate, block.moddate, block.createby, block.modby where dataset = /CSA07Muon/CMSSW_1_6_7-CSA07-Tier0-A1-Chowder/RECO
+find block.size, block.numfiles, block.numevents, block.status, block.createdate, block.moddate, block.createby, block.modby where block = /CSA07Muon/CMSSW_1_6_7-CSA07-Tier0-A1-Chowder/RECO#01123fd3-5486-41fe-8b90-7dbb8fbe69b8
+find block.count where dataset = /CSA07Muon/CMSSW_1_6_7-CSA07-Tier0-A1-Chowder/RECO
+find count(block) where dataset = /CSA07Muon/CMSSW_1_6_7-CSA07-Tier0-A1-Chowder/RECO
+find run.count where dataset = /test_primary_001/TestProcessedDS002/GEN-SIM
+find lumi, lumi.starttime, lumi.endtime
+find dataset.id, dataset.status, dataset.era, dataset.tag, dataset.createdate, dataset.moddate, dataset.createby, dataset.modby where dataset = /test_primary_001/TestProcessedDS002/GEN-SIM
+find dataset.release, dataset.era, dataset.tag, dataset.status, dataset.createdate, dataset.moddate, dataset.createby, dataset.modby where dataset = /CSA07Muon/Skim-zToTauTau_MuTau-Tier0-A1-Chowder/USER
+find file.child, file where file = NEW_TEST0002
+find file where file.child = NEW_TEST0005
+find sum(file.size) where dataset = /test_primary_001/TestProcessedDS002/GEN-SIM and file.size > 0
+find sum(run.numevents) where dataset = /test_primary_001/TestProcessedDS002/GEN-SIM and file.size > 0
+find sum(block.size)  where dataset = /CSA07Muon/CMSSW_1_6_7-CSA07-Tier0-A1-Chowder/RECO
+find phygrp
+find phygrp where dataset = /test_primary_001/TestProcessedDS002/GEN-SIM 
+find dataset where phygrp like *BPositive 
+find dataset where phygrp in (BPositive,Any )
+find file where phygrp in (BPositive,Any )
+find file,run where phygrp in (BPositive,Any )
+find phygrp.id, phygrp.name
+find phygrp, phygrp.id, phygrp.createdate , phygrp.moddate, phygrp.createby, phygrp.modby
+find dataset where pset = associatorL25PixelTauIsolated.coneSize>0&associatorL25SingleTau.coneSize>0&associatorL25SingleTau.jets<>a
+find file, lumi where pset = associatorL25PixelTauIsolated.coneSize>0
+find dataset  where site = T1_FR_CCIN2P3
+find dataset  where site in ( T1_FR_CCIN2P3, T1_TW_ASGC)
+find dataset  where site like *A*
+find dataset  where site like castorsrm.cr.cnaf*
+find dataset  where site = castorsrm.cr.cnaf.infn.it
+find dataset  where site = test_seM_ee563854-0ed2-4010-82ba-e94e7868cbff
+find dataset, site
+find site
+find dataset where run between 51437 and 51450 or run between 0 and 30000
+find dataset where dataset.id between 1 and 2 or dataset like *on*
+find run where primds = test_primary_001
+find count(file), dataset where dataset like *
+find sum(file.size), dataset where file.size > 0
+find file, dataset where release = test_Ver1_eaf67699-b539-487d-8713-07df617379db
+find file where release = test_Ver1_eaf67699-b539-487d-8713-07df617379db
+find dataset where release = test_Ver1_eaf67699-b539-487d-8713-07df617379db
+find block
+find block, block.size,  block.createdate, block.moddate, block.createby, block.modby where dataset = /CSA07Muon/CMSSW_1_6_7-CSA07-Tier0-A1-Chowder/RECO
+find block.size,  block.createdate, block.moddate, block.createby, block.modby where block = /CSA07Muon/CMSSW_1_6_7-CSA07-Tier0-A1-Chowder/RECO#01123fd3-5486-41fe-8b90-7dbb8fbe69b8
+find block.count where dataset = /CSA07Muon/CMSSW_1_6_7-CSA07-Tier0-A1-Chowder/RECO
+find count(block) where dataset = /CSA07Muon/CMSSW_1_6_7-CSA07-Tier0-A1-Chowder/RECO
+find run.count where dataset = /test_primary_001/TestProcessedDS002/GEN-SIM
+find lumi, lumi.starttime, lumi.endtime
+find dataset.id, dataset.status, dataset.era, dataset.tag, dataset.createdate, dataset.createby where dataset = /test_primary_001/TestProcessedDS002/GEN-SIM
+find dataset.release, dataset.era, dataset.tag, dataset.status, dataset.createdate, dataset.createby where dataset = /CSA07Muon/Skim-zToTauTau_MuTau-Tier0-A1-Chowder/USER
+find file.child, file where file = NEW_TEST0002
+find file where file.child = NEW_TEST0005
+find sum(file.size) where dataset = /test_primary_001/TestProcessedDS002/GEN-SIM and file.size > 0
+find sum(run.numevents) where dataset = /test_primary_001/TestProcessedDS002/GEN-SIM and file.size > 0
+find sum(block.size)  where dataset = /CSA07Muon/CMSSW_1_6_7-CSA07-Tier0-A1-Chowder/RECO
+find phygrp
+find phygrp where dataset = /test_primary_001/TestProcessedDS002/GEN-SIM
+find dataset where phygrp like *BPositive
+find dataset where phygrp in (BPositive,Any )
+find file where phygrp in (BPositive,Any )
+find file,run where phygrp in (BPositive,Any )
+find phygrp.id, phygrp.name
+find phygrp, phygrp.id, phygrp.createdate , phygrp.createby, phygrp.modby
+find dataset where pset = associatorL25PixelTauIsolated.coneSize>0&associatorL25SingleTau.coneSize>0&associatorL25SingleTau.jets<>a
+find file, lumi where pset = associatorL25PixelTauIsolated.coneSize>0
+find dataset  where site = T1_FR_CCIN2P3
+find dataset  where site in ( T1_FR_CCIN2P3, T1_TW_ASGC)
+find dataset  where site like *A*
+find dataset  where site like castorsrm.cr.cnaf*
+find dataset  where site = castorsrm.cr.cnaf.infn.it
+find dataset  where site = test_seM_ee563854-0ed2-4010-82ba-e94e7868cbff
+find dataset, site
+find site
+find dataset where run between 51437 and 51450 or run between 0 and 30000
+find dataset where dataset.id between 1 and 2 or dataset like *on*
+find algo.family, algo.version, algo.exe, algo.modby,algo.createby, algo.createdate, algo.moddate
+find  dataset where algo.version = CMSSW or algo.family = CMS*
+find algo.family, algo.version, algo.exe where file = MyLogocalFileName
+find datatype
+find dataset where datatype = cosmic
+find file where datatype = cosmic
+find datatype where dataset = *on*
+find datatype, datatype.id, datatype.createdate, datatype.moddate,datatype.createby, datatype.modby where dataset = *on*
+find dataset where site != caf.cern.ch 
+find dataset where site = caf.cern.ch 
+find dataset where site = T1_CH_CERN 
+find dataset where site != T1_CH_CERN 
+find dataset where site in (T1_CH_CERN , T0_CH_CERN) 
+find procds.xsection where procds like *
+find dataset.xsection where dataset like *
+find algo.version, algo.family, algo.exe where algo.family like *
+#find config, config.name, config.type, config.version, config.content, config.hash, config.id, config.createdate, config.createby, config.moddate, config.modby
+#find mcdesc, mcdesc.name, mcdesc.def, mcdesc.parent, mcdesc.createdate, mcdesc.createby where primds like *
+#find trigdesc, trigdesc.name, trigdesc.createdate, trigdesc.createby where primds like *

@@ -1,0 +1,143 @@
+  485   python dqListFilesByDQ.py --url=http://cmssrv17.fnal.gov:8989/DBSADSTEST02/servlet/DBSServlet --query="RunNumber=1&Tracker_Global=GOOD&TIB_Local=BAD&TIB_DCS=UNKNOWN&RunNumber=2"
+  493   python dqListFilesByDQ.py --url=http://cmssrv17.fnal.gov:8989/DBSADSTEST02/servlet/DBSServlet --query="RunNumber=1&Tracker_Global=GOOD&TIB_Local=BAD&TIB_DCS=UNKNOWN&RunNumber=2"
+  494   python dqListFilesByDQ.py --url=http://cmssrv17.fnal.gov:8989/DBSADSTEST02/servlet/DBSServlet --query="RunNumber=1&Tracker_Global=GOOD&TIB_Local=BAD&TIB_DCS=UNKNOWN&RunNumber=2"
+  495   python dqListFilesByDQ.py --url=http://cmssrv17.fnal.gov:8989/DBSADSTEST02/servlet/DBSServlet --query="RunNumber=1&Tracker_Global=GOOD&TIB_Local=BAD&TIB_DCS=UNKNOWN&RunNumber=2"
+  496   python dqListFilesByDQ.py --url=http://cmssrv17.fnal.gov:8989/DBSADSTEST02/servlet/DBSServlet --query="RunNumber=1&Tracker_Global=GOOD&TIB_Local=BAD&TIB_DCS=UNKNOWN&RunNumber=2"
+  498   python dqListFilesByDQ.py --url=http://cmssrv17.fnal.gov:8989/DBSADSTEST02/servlet/DBSServlet --query="RunNumber=1&Tracker_Global=GOOD&TIB_Local=BAD&TIB_DCS=UNKNOWN&RunNumber=2"
+  499   python dqListFilesByDQ.py --url=http://cmssrv17.fnal.gov:8989/DBSADSTEST02/servlet/DBSServlet --query="RunNumber=1&Tracker_Global=GOOD&TIB_Local=BAD&TIB_DCS=UNKNOWN&RunNumber=2"
+  504   python dqListFilesByDQ.py --url=http://cmssrv17.fnal.gov:8989/DBSADSTEST02/servlet/DBSServlet --query="RunNumber=1&Tracker_Global=GOOD&TIB_Local=BAD&TIB_DCS=UNKNOWN&RunNumber=2"
+  505   python dqListFilesByDQ.py --url=http://cmssrv17.fnal.gov:8989/DBSADSTEST02/servlet/DBSServlet --query="RunNumber=1&Tracker_Global=GOOD&TIB_Local=BAD&TIB_DCS=UNKNOWN&RunNumber=2"
+  506   python dqListFilesByDQ.py --url=http://cmssrv17.fnal.gov:8989/DBSADSTEST02/servlet/DBSServlet --query="RunNumber=1&Tracker_Global=GOOD&TIB_Local=BAD&TIB_DCS=UNKNOWN&RunNumber=2"
+  528   python dqListFilesByDQ.py --url=http://cmssrv17.fnal.gov:8989/DBSADSTEST02/servlet/DBSServlet --query="RunNumber=1&Tracker_Global=GOOD&TIB_Local=BAD&TIB_DCS=UNKNOWN&RunNumber=2"
+  529   python dqListFilesByDQ.py --url=http://cmssrv48.fnal.gov:8282/DBS/servlet/DBSServlet --query="RunNumber=1&Tracker_Global=GOOD&TIB_Local=BAD&TIB_DCS=UNKNOWN&RunNumber=2"
+  530   python dqListFilesByDQ.py --url=http://cmssrv48.fnal.gov:8282/DBS/servlet/DBSServlet --query="RunNumber=1&Tracker_Global=GOOD&TIB_Local=BAD&TIB_DCS=UNKNOWN&RunNumber=2"
+  531   python dqListFilesByDQ.py --url=http://cmssrv48.fnal.gov:8282/DBS/servlet/DBSServlet --query="RunNumber=1&Tracker_Global=GOOD&TIB_Local=BAD&TIB_DCS=UNKNOWN&RunNumber=2"
+  539   python dqListFilesByDQ.py --url=http://cmssrv48.fnal.gov:8282/DBS/servlet/DBSServlet --query="RunNumber=1&Tracker_Global=GOOD&TIB_Local=BAD&TIB_DCS=UNKNOWN&RunNumber=2"
+  542   python dqListFilesByDQ.py --url=http://cmssrv48.fnal.gov:8282/DBS/servlet/DBSServlet --query="RunNumber=1&Tracker_Global=GOOD&TIB_Local=BAD&TIB_DCS=UNKNOWN&RunNumber=22000"
+  611  history|grep dqListFilesByDQ.py
+  612  history|grep dqListFilesByDQ.py
+  613  python dqListFilesByDQ.py --url=http://cmssrv17.fnal.gov:8989/DBSADSTEST02/servlet/DBSServlet --query="RunNumber=1&Tracker_Global=GOOD"
+  615  python dqListFilesByDQ.py --url=http://vocms28.cern.ch:8480/cms_dbs_prod_local_10_reader/servlet/DBSServlet --query="RunNumber=1&Tracker_Global=GOOD"
+  616  python dqListFilesByDQ.py --url=http://vocms28.cern.ch:8480/cms_dbs_prod_local_10_reader/servlet/DBSServlet --query="RunNumber=1&Tracker_Global=GOOD&RunNumber=340"
+  617  python dqListFilesByDQ.py --url=http://vocms28.cern.ch:8480/cms_dbs_prod_local_10_reader/servlet/DBSServlet --query="Tracker_Global=GOOD&RunNumber=340"
+  618  python dqListFilesByDQ.py --url=http://vocms28.cern.ch:8480/cms_dbs_prod_local_10_reader/servlet/DBSServlet --query="RunNumber=340&Tracker_Global=GOOD"
+  619  python dqListFilesByDQ.py --url=http://vocms28.cern.ch:8480/cms_dbs_prod_local_10_reader/servlet/DBSServlet --query="RunNumber=345&Tracker_Global=GOOD"
+  620  python dqListFilesByDQ.py --url=http://vocms28.cern.ch:8480/cms_dbs_prod_local_10_reader/servlet/DBSServlet --query="RunNumber=240&Tracker_Global=GOOD"
+  621  python dqListFilesByDQ.py --url=http://vocms28.cern.ch:8480/cms_dbs_prod_local_10_reader/servlet/DBSServlet --query="RunNumber=2&Tracker_Global=GOOD"
+  622  python dqListFilesByDQ.py --url=http://vocms28.cern.ch:8480/cms_dbs_prod_local_10_reader/servlet/DBSServlet --query="RunNumber=10&Tracker_Global=GOOD"
+  623  python dqListFilesByDQ.py --url=http://vocms28.cern.ch:8480/cms_dbs_prod_local_10_reader/servlet/DBSServlet --query="RunNumber=1&Tracker_Global=GOOD"
+  624  python dqListFilesByDQ.py --url=http://vocms28.cern.ch:8480/cms_dbs_prod_local_10_reader/servlet/DBSServlet --query="RunNumber=240"
+  625  python dqListFilesByDQ.py --url=http://vocms28.cern.ch:8480/cms_dbs_prod_local_10_reader/servlet/DBSServlet --query="RunNumber=38143"
+  626  time python dqListFilesByDQ.py --url=http://vocms28.cern.ch:8480/cms_dbs_prod_local_10_reader/servlet/DBSServlet --query="RunNumber=1&Tracker_Global=GOOD" > /dev/null
+  643  time python dqListFilesByDQ.py --url=http://vocms28.cern.ch:8480/cms_dbs_prod_local_10_reader/servlet/DBSServlet --query="Tracker_Global=GOOD" 
+  644  time python dqListFilesByDQ.py --url=http://vocms28.cern.ch:8480/cms_dbs_prod_local_10_reader/servlet/DBSServlet --query="Tracker_Global=GOOD" 
+  654  python dqListFilesByDQ.py --url=http://cmssrv17.fnal.gov:8989/DBSADSTEST02/servlet/DBSServlet --query="RunNumber=1&Tracker_Global=GOOD&TIB_Local=BAD&TIB_DCS=UNKNOWN&RunNumber=2"
+  655  python dqListFilesByDQ.py --url=http://cmssrv17.fnal.gov:8989/DBSADSTEST02/servlet/DBSServlet --query="Tracker_Global=GOOD"
+  656  python dqListFilesByDQ.py --url=http://vocms28.cern.ch:8480/cms_dbs_prod_local_10_reader/servlet/DBSServlet --query="RunNumber=38143"
+  789  history|grep dqListFilesByDQ.py 
+  790  python dqListFilesByDQ.py --url=http://vocms28.cern.ch:8480/cms_dbs_prod_local_10_reader/servlet/DBSServlet --query="Tracker_Global=GOOD"
+  791  python dqListFilesByDQ.py --url=http://cmssrv17.fnal.gov:8989/DBSADSTEST02/servlet/DBSServlet --query="Tracker_Global=GOOD"
+ 1084  vi dqListFilesByDQ.py 
+ 1085  python dqListFilesByDQ.py 
+ 1086  python dqListFilesByDQ.py --query="HE_Online_DQM=GOOD&HE_DCS=GOOD"
+ 1087  vi dqListFilesByDQ.py 
+ 1088  vi dqListFilesByDQ.py 
+ 1089  vi dqListFilesByDQ.py 
+ 1090  python dqListFilesByDQ.py --query="HE_Online_DQM=GOOD&HE_DCS=GOOD"
+ 1091  python dqListFilesByDQ.py --query="HE_Online_DQM=GOOD&HE_DCS=GOOD"
+ 1092  vi dqListFilesByDQ.py 
+ 1093  vi dqListFilesByDQ.py 
+ 1095  python dqListFilesByDQ.py --query="HE_Online_DQM=GOOD&HE_DCS=GOOD"
+ 1096  vi dqListFilesByDQ.py 
+ 1099  python dqListFilesByDQ.py --query="HE_Online_DQM=GOOD&HE_DCS=GOOD"
+ 1101  python dqListFilesByDQ.py --query="HE_Online_DQM=GOOD&HE_DCS=GOOD"
+ 1112  python dqListFilesByDQ.py --query="HE_Online_DQM=GOOD&HE_DCS=GOOD"
+ 1113  python dqListFilesByDQ.py --query="HE_Online_DQM=GOOD&HE_DCS=GOOD&TIB_Percentage=100"
+ 1114  python dqListFilesByDQ.py --query="HE_Online_DQM=GOOD&HE_DCS=GOOD&TIB_Percentage=100&HE_Cooling=BAD&HF_DAQ=UNKNOWN"
+ 1117  python dqListFilesByDQ.py --query="HE_Online_DQM=GOOD&HE_DCS=GOOD&TIB_Percentage=100&HE_Cooling=BAD&HF_DAQ=UNKNOWN"
+ 1118  python dqListFilesByDQ.py --query="HE_Online_DQM=GOOD&HE_DCS=GOOD&TIB_Percentage=100&HE_Cooling=BAD&HF_DAQ=UNKNOWN"
+ 1168  python dqListFilesByDQ.py --query="HE_Online_DQM=GOOD&HE_DCS=GOOD&TIB_Percentage=100&HE_Cooling=BAD&HF_DAQ=UNKNOWN"
+ 1169  python dqListFilesByDQ.py --query="HE_Online_DQM=GOOD&HE_DCS=GOOD&TIB_Percentage=100&HE_Cooling=BAD&HF_DAQ=UNKNOWN"
+ 1170  python dqListFilesByDQ.py --query="TIB_Percentage=100"
+ 1171  python dqListFilesByDQ.py --query="TIB_Percentage=100"
+ 1172  python dqListFilesByDQ.py --query="RunNumber=1&TIB_Percentage=100"
+ 1173  python dqListFilesByDQ.py --query="RunNumber=1&TIB_Percentage=100"
+ 1174  python dqListFilesByDQ.py --query="RunNumber=1"
+ 1175  python dqListFilesByDQ.py --query="RunNumber=1&TIB_Local=GOOD"
+ 1176  python dqListFilesByDQ.py --query="RunNumber=1&TIB_Local=GOOD"
+ 1177  python dqListFilesByDQ.py --query="RunNumber=1"
+ 1178  python dqListFilesByDQ.py --query="TIB_Percentage=100"
+ 1179  python dqListFilesByDQ.py --query="RunNumber=1&TIB_Percentage=100"
+ 1180  python dqListFilesByDQ.py --query="RunNumber=1&TIB_Percentage=100"
+ 1181  python dqListFilesByDQ.py --query="RunNumber=1"
+ 1182  python dqListFilesByDQ.py --query="TIB_Percentage=100"
+ 1183  python dqListFilesByDQ.py --query="TIB_Percentage=100"
+ 1184  python dqListFilesByDQ.py --query="RunNumber=1"
+ 1185  python dqListFilesByDQ.py --query="RunNumber=1&TIB_Percentage=100"
+ 1186  python dqListFilesByDQ.py --query="RunNumber=1&TIB_Percentage=100"
+ 1187  python dqListFilesByDQ.py --query="RunNumber=1&TIB_Percentage=100"
+ 1188  python dqListFilesByDQ.py --query="RunNumber=1&TIB_Percentage=100&RunNumber=2"
+ 1189  python dqListFilesByDQ.py --query="RunNumber=1&TIB_Percentage=100&RunNumber=2&TIB_Local=GOOD"
+ 1190  python dqListFilesByDQ.py --query="RunNumber=1&TIB_Percentage=100&RunNumber=2&TIB_Local=GOOD&Tracker_Global=BAD"
+ 1191  python dqListFilesByDQ.py --query="RunNumber=1&TIB_Percentage=100&RunNumber=2&TIB_Local=GOOD&Tracker_Global=BAD&RunNumber=3"
+ 1192  python dqListFilesByDQ.py --query="RunNumber=1&TIB_Percentage=100&RunNumber=2&TIB_Local=GOOD&Tracker_Global=BAD&RunNumber=3&TCS_DCS=UNKNOWN"
+ 1193  python dqListFilesByDQ.py --query="RunNumber=1&TIB_Percentage=100&RunNumber=2&TIB_Local=GOOD&Tracker_Global=BAD&RunNumber=3&TCS_DCS=UNKNOWN&XYZ_Percentage=99"
+ 1195  python dqListFilesByDQ.py --query="RunNumber=1&TIB_Percentage=100&RunNumber=2&TIB_Local=GOOD&Tracker_Global=BAD&RunNumber=3&TCS_DCS=UNKNOWN&XYZ_Percentage=99"
+ 1197  vi dqListFilesByDQ.py 
+ 1199  python dqListFilesByDQ.py --query="RunNumber=1&TIB_Percentage=100&RunNumber=2&TIB_Local=GOOD&Tracker_Global=BAD&RunNumber=3&TCS_DCS=UNKNOWN&XYZ_Percentage=99"
+ 1222  history|grep dqListFilesByDQ.py
+ 1223  history|grep dqListFilesByDQ.py| awk '{print $2}'
+ 1224  history|grep dqListFilesByDQ.py| awk '{print $2 $3}'
+ 1225  history|grep dqListFilesByDQ.py
+ 1226  history|grep dqListFilesByDQ.py > UserExamples/DataQuality/EXAMPLE_QUERIES
+  429  source setup.sh 
+  478  source setup.sh 
+  483  source setup.sh 
+  501  cat ~/CVSScripts/setup_cvs.sh 
+  549  source setup.sh 
+  575  cat CVSScripts/setup_cvs.sh 
+  576  cat ~/CVSScripts/setup_cvs.sh 
+  578  source setup.sh 
+  590  source setup.sh 
+  632  source setup.sh 
+  652  cat ~/CVSScripts/setup_cvs.sh 
+  683  source setup.sh 
+  694  dbs search --query "find dataset where dataset like *Online*"
+  699  dbs search --query "find dataset where dataset like *Online*"
+  700  dbs search --query "find dataset where dataset like *Online*"
+  701  dbs search --query "find dataset where dataset like *Online*"
+  704  dbs search --query "find dataset where dataset like *Online*"
+  706  source setup.sh 
+  720  python dbsExecuteQuery.py --url="http://vocms28.cern.ch:8480/cms_dbs_prod_local_10/servlet/DBSServlet" --query="find dataset"
+  722  python dbsExecuteQuery.py --url="http://vocms28.cern.ch:8480/cms_dbs_prod_local_10/servlet/DBSServlet" --query="find dataset"
+  734  python setDQ.py 
+  735  vi setDQ.py 
+  745  wget "http://vocms28.cern.ch:8480/cms_dbs_prod_local_10/servlet/DBSServlet?api=executeQuery&apiversion=DBS_1_0_9&listPrimaryDatasets"
+  748  vi "DBSServlet?api=executeQuery&apiversion=DBS_1_0_9&listPrimaryDatasets"
+  749  wget "http://vocms28.cern.ch:8480/cms_dbs_prod_local_10/servlet/DBSServlet?apiversion=DBS_1_0_9&api=listPrimaryDatasets"
+  751  cat "DBSServlet?apiversion=DBS_1_0_9&api=listPrimaryDatasets"
+  752  wget "http://cmssrv48:8282/cms_dbs_prod_local_10/servlet/DBSServlet?apiversion=DBS_1_0_9&api=listPrimaryDatasets"
+  753  wget "http://cmssrv48:8282/DBS/servlet/DBSServlet?apiversion=DBS_1_0_9&api=listPrimaryDatasets"
+  755  cat "DBSServlet?apiversion=DBS_1_0_9&api=listPrimaryDatasets.1"
+  764  python setDQ.py 
+  771  python setDQ.py 
+  772  python setDQ.py --run=20000
+  775  python setDQ.py --run=20000 --tag=HF_Percentage
+  776  vi setDQ.py 
+  777  python setDQ.py --run=20000 --tag=HF_Percentage
+  778  vi setDQ.py 
+  779  python setDQ.py --run=20000 --tag=HF_Percentage --value=10
+  780  python setDQ.py --run=20000 --tag=HF_Percentage --value=10
+  781  python setDQ.py --run=20000 --tag=HF_Percentage --value=10
+  782  python setDQ.py --run=20000 --tag=HF_Percentage --value=10
+  783  python setDQ.py --run=20000 --tag=HF_Percentage --value=10
+  784  python setDQ.py --run=20000 --tag=HF_Percentage --value=10
+  785  python setDQ.py --run=20000 --tag=HF_Percentage --value=10
+  786  python setDQ.py --run=20000 --tag=HF_Percentage --value=10
+ 1106  python setDQ.py 
+ 1107  python setDQ.py --run=22000 
+ 1108  python setDQ.py --run=22000 --tag=XYZ_Percentage
+ 1109  python setDQ.py --run=22000 --tag=XYZ_Percentage --value=55
+ 1110  python setDQ.py --run=23000 --tag=XYZ_Percentage --value=55
+ 1111  vi setDQ.py 
+ 1228  history|grep set >> UserExamples/DataQuality/EXAMPLE_QUERIES

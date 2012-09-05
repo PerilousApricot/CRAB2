@@ -81,7 +81,7 @@ class cmscp:
         on WN (on the Grid), and take different action
         """
         self.processOptions()
-        if self.debug: print 'calling run() : \n'
+        if self.debug: print 'calling run() : '
         # stage out from WN
         if self.params['middleware'] :
             results = self.stager(self.params['middleware'],self.params['inputFileList'])
@@ -98,7 +98,7 @@ class cmscp:
         write a json file containing copy results for each file
         """
         if self.debug: 
-            print 'in writeJsonFile() : \n'
+            print 'in writeJsonFile() : '
             print "---->>>> in writeJsonFile results =  ", results
         jsonOut = "resultCopyFile"
         if os.getenv("RUNTIME_AREA"):
@@ -107,7 +107,7 @@ class cmscp:
         json.dump(results, fp)
         fp.close()
         if self.debug: 
-            print '    reading resultCopyFile : \n'
+            print '    reading resultCopyFile : '
             lp = open(jsonOut, "r")
             inputDict = json.load(lp)
             lp.close()
@@ -141,8 +141,8 @@ class cmscp:
         """
         # default To be used with "middleware"
         if self.debug: 
-            print 'setProtocol() :\n'
-            print '\tmiddleware =  %s utils \n'%middleware
+            print 'setProtocol() :'
+            print '\tmiddleware =  %s utils '%middleware
 
         lcgOpt={'srmv1':'-b -D srmv1  -t 2400 --verbose',
                 'srmv2':'-b -D srmv2  -t 2400 --verbose'}
@@ -158,16 +158,18 @@ class cmscp:
         #############################
 
         supported_protocol = None
-        if middleware.lower() in ['osg','lcg','condor','sge']:
+        if middleware.lower() in ['osg','lcg','condor','sge','pbsv2withsrm']:
             supported_protocol = [('srm-lcg',lcgOpt[self.params['srm_version']])]#,\
                                #  (self.params['srm_version'],srmOpt[self.params['srm_version']])]
         #elif middleware.lower() in ['lsf','caf']:
         elif middleware.lower() in ['lsf']:
             supported_protocol = [('rfio',rfioOpt)]
-        elif middleware.lower() in ['pbs']:
+        elif middleware.lower() in ['pbs','pbsv2']:
             supported_protocol = [('rfio',rfioOpt),('local','')]
         elif middleware.lower() in ['arc']:
             supported_protocol = [('srmv2','-debug'),('srmv1','-debug')]
+        elif middleware.lower() in ['pbsv2withlstore']:
+            supported_protocol = [('lstore','')]
         #### FEDE FOR XROOTD ##########
         elif middleware.lower() in ['caf']:
             if self.params['protocol']:
@@ -194,7 +196,7 @@ class cmscp:
         list_ok = []
         
         if self.debug: 
-            print 'in checkCopy() :\n'
+            print 'in checkCopy() :'
         
         for file, dict in copy_results.iteritems():
             er_code = dict['erCode']
@@ -224,16 +226,16 @@ class cmscp:
         
         msg = ''
         if len(list_ok) != 0:
-            msg += '\tCopy of %s succedeed with %s utils\n'%(str(list_ok),prot)
+            msg += '\tCopy of %s succedeed with %s utils'%(str(list_ok),prot)
         if len(list_ok) != len_list_files :
             if len(list_fallback)!=0:
-                msg += '\tCopy of %s succedeed with %s utils in the fallback SE\n'%(str(list_fallback),prot)
+                msg += '\tCopy of %s succedeed with %s utils in the fallback SE'%(str(list_fallback),prot)
             if len(list_retry)!=0:
-                msg += '\tCopy of %s failed using %s for files \n'%(str(list_retry),prot)
+                msg += '\tCopy of %s failed using %s for files '%(str(list_retry),prot)
             if len(list_not_existing)!=0:
-                msg += '\tCopy of %s failed using %s : files not found \n'%(str(list_not_existing),prot)
+                msg += '\tCopy of %s failed using %s : files not found '%(str(list_not_existing),prot)
             if len(list_already_existing)!=0:
-                msg += '\tCopy of %s failed using %s : files already existing\n'%(str(list_already_existing),prot)
+                msg += '\tCopy of %s failed using %s : files already existing'%(str(list_already_existing),prot)
         if self.debug : print msg
         return copy_results, list_ok, list_retry, list_fallback
         
@@ -244,7 +246,7 @@ class cmscp:
         list_retry_localSE = []
 
         if self.debug: 
-            print 'in check_for_retry_localSE() :\n'
+            print 'in check_for_retry_localSE() :'
             print "\t results in check local = ", copy_results
         for file, dict in copy_results.iteritems():
             er_code = dict['erCode']
@@ -264,9 +266,9 @@ class cmscp:
         Tries the stage out to the CloseSE
         """
         if self.debug: 
-            print 'in LocalCopy() :\n'
-            print '\t list_retry %s utils \n'%list_retry
-            print '\t len(list_retry) %s \n'%len(list_retry)
+            print 'in LocalCopy() :'
+            print '\t list_retry %s utils '%list_retry
+            print '\t len(list_retry) %s '%len(list_retry)
                 
         list_files = list_retry  
         self.params['inputFileList']=list_files
@@ -297,16 +299,19 @@ class cmscp:
            protocol = 'rfio'
         elif (implName == 'cp'):
            protocol = 'local'
+        # the plugin for staging out to LStore is called vandy in storage.xml
+        elif (implName == 'vandy'):
+           protocol = 'vandy'
         else: protocol = implName 
         
         self.params['protocol']=protocol
         self.params['option']=option
 
         if self.debug:
-            print '\t siteCFG %s \n'%siteCfg
-            print '\t catalog %s \n'%catalog 
+            print '\t siteCFG %s '%siteCfg
+            print '\t catalog %s '%catalog 
             print '\t tfc %s '%tfc
-            print '\t fallback seName %s \n'%seName 
+            print '\t fallback seName %s '%seName 
             print "\t fallback protocol %s \n"%protocol            
             print "\t fallback option %s \n"%option
             print "\t self.params['inputFileList'] %s \n"%self.params['inputFileList']
@@ -335,9 +340,9 @@ class cmscp:
 
             file_backup.append(surl)
             if self.debug:
-                print '\t for_lfn %s \n'%self.params['for_lfn']
-                print '\t file %s \n'%file
-                print '\t surl %s \n'%surl
+                print '\t for_lfn %s '%self.params['for_lfn']
+                print '\t file %s '%file
+                print '\t surl %s '%surl
                     
         destination=os.path.dirname(file_backup[0])
         if ( destination[-1] != '/' ) : destination = destination + '/'
@@ -357,7 +362,7 @@ class cmscp:
         #####
 
         if self.debug:
-            print '\tIn LocalCopy trying the stage out with: \n'
+            print '\tIn LocalCopy trying the stage out with: '
             print "\tself.params['destination'] %s \n"%self.params['destination']
             print "\tself.params['protocol'] %s \n"%self.params['protocol']
             print "\tself.params['option'] %s \n"%self.params['option']
@@ -380,15 +385,15 @@ class cmscp:
         """
  
         if self.debug: 
-            print 'stager() :\n'
-            print '\tmiddleware %s\n'%middleware
-            print '\tlist_files %s\n'%list_files
+            print 'stager() :'
+            print '\tmiddleware %s'%middleware
+            print '\tlist_files %s'%list_files
         
         results={}
         for prot, opt in self.setProtocol( middleware ):
             if self.debug: 
-                print '\tTrying the stage out with %s utils \n'%prot
-                print '\tand options %s\n'%opt
+                print '\tTrying the stage out with %s utils '%prot
+                print '\tand options %s'%opt
                 
             copy_results = self.copy( list_files, prot, opt )
             if copy_results.keys() == [''] or copy_results.keys() == '' :
@@ -421,7 +426,7 @@ class cmscp:
         """
         Instantiate storage interface
         """
-        if self.debug : print 'initializeApi() :\n'  
+        if self.debug : print 'initializeApi() :'  
         self.source_prot = protocol
         self.dest_prot = protocol
         if not self.params['source'] : self.source_prot = 'local'
@@ -447,10 +452,10 @@ class cmscp:
         msg = ""
         results = {}
         if self.debug :
-            msg  = 'copy() :\n'
-            msg += '\tusing %s protocol\n'%protocol
-            msg += '\tusing %s options\n'%options
-            msg += '\tlist_file %s\n'%list_file
+            msg  = 'copy() :'
+            msg += '\tusing %s protocol'%protocol
+            msg += '\tusing %s options'%options
+            msg += '\tlist_file %s'%list_file
             print msg
         try:
             Source_SE, Destination_SE = self.initializeApi( protocol )
@@ -512,7 +517,7 @@ class cmscp:
         """
         Create the storage interface.
         """
-        if self.debug : print 'storageInterface():\n'
+        if self.debug : print 'storageInterface():'
         try:
             interface = SElement( FullPath(endpoint), protocol )
         except ProtocolUnknown, ex:
@@ -527,7 +532,7 @@ class cmscp:
         Create remote dir for gsiftp REALLY TEMPORARY
         this should be transparent at SE API level.
         """
-        if self.debug : print 'createDir():\n'
+        if self.debug : print 'createDir():'
         msg = ''
         try:
             action = SBinterface( Destination_SE )
@@ -537,26 +542,26 @@ class cmscp:
             msg  = "ERROR: problem with the directory creation using %s protocol "%protocol
             msg += str(ex)
             if self.debug :
-                dbgmsg  = '\t'+msg+'\n\t'+str(ex.detail)+'\n'
-                dbgmsg += '\t'+str(ex.output)+'\n'
+                dbgmsg  = '\t'+msg+'\n\t'+str(ex.detail)+''
+                dbgmsg += '\t'+str(ex.output)+''
                 print dbgmsg 
             raise Exception(msg)
         except OperationException, ex:
             msg  = "ERROR: problem with the directory creation using %s protocol "%protocol
             msg += str(ex)
-            if self.debug : print '\t'+msg+'\n\t'+str(ex.detail)+'\n'
+            if self.debug : print '\t'+msg+'\n\t'+str(ex.detail)+''
             raise Exception(msg)
         except MissingDestination, ex:
             msg  = "ERROR: problem with the directory creation using %s protocol "%protocol
             msg += str(ex)
-            if self.debug : print '\t'+msg+'\n\t'+str(ex.detail)+'\n'
+            if self.debug : print '\t'+msg+'\n\t'+str(ex.detail)+''
             raise Exception(msg)
         except AlreadyExistsException, ex:
             if self.debug: print "\tThe directory already exist"
             pass
         except Exception, ex:    
             msg = "ERROR %s %s" %(str(ex), str(ex.detail))
-            if self.debug : print '\t'+msg+'\n\t'+str(ex.detail)+'\n'
+            if self.debug : print '\t'+msg+'\n\t'+str(ex.detail)+''
             raise Exception(msg)
         return msg
 
@@ -565,34 +570,34 @@ class cmscp:
         Check both if source file exist AND 
         if destination file ALREADY exist. 
         """
-        if self.debug : print 'checkFileExist():\n'
+        if self.debug : print 'checkFileExist():'
         ErCode = '0'
         msg = ''
         f_tocopy=filetocopy
         if self.source_prot != 'local':f_tocopy = os.path.basename(filetocopy)
         try:
             checkSource = sbi_source.checkExists( f_tocopy , opt=option, tout = self.subprocesstimeout['exists'] )
-            if self.debug : print '\tCheck for local file %s existance executed \n'%f_tocopy  
+            if self.debug : print '\tCheck for local file %s existance executed '%f_tocopy  
         except OperationException, ex:
             msg  ='ERROR: problems checking source file %s existance'%filetocopy
             msg += str(ex)
             if self.debug :
-                dbgmsg  = '\t'+msg+'\n\t'+str(ex.detail)+'\n'
-                dbgmsg += '\t'+str(ex.output)+'\n'
+                dbgmsg  = '\t'+msg+'\n\t'+str(ex.detail)+''
+                dbgmsg += '\t'+str(ex.output)+''
                 print dbgmsg 
             raise Exception(msg)
         except WrongOption, ex:
             msg  ='ERROR: problems checking source file %s existance'%filetocopy
             msg += str(ex)
             if self.debug :
-                dbgmsg  = '\t'+msg+'\n\t'+str(ex.detail)+'\n'
-                dbgmsg += '\t'+str(ex.output)+'\n'
+                dbgmsg  = '\t'+msg+'\n\t'+str(ex.detail)+''
+                dbgmsg += '\t'+str(ex.output)+''
                 print dbgmsg 
             raise Exception(msg)
         except MissingDestination, ex:
             msg  ='ERROR: problems checking source file %s existance'%filetocopy
             msg += str(ex)
-            if self.debug : print '\t'+msg+'\n\t'+str(ex.detail)+'\n'
+            if self.debug : print '\t'+msg+'\n\t'+str(ex.detail)+''
             raise Exception(msg)
         ## when the client commands are not found (wrong env or really missing)
         except MissingCommand, ex:
@@ -606,27 +611,27 @@ class cmscp:
         f_tocopy=os.path.basename(filetocopy)
         try:
             check = sbi_dest.checkExists( f_tocopy, opt=option, tout = self.subprocesstimeout['exists'] )
-            if self.debug : print '\tCheck for remote file %s existance executed \n'%f_tocopy  
-            if self.debug : print '\twith exit code = %s \n'%check  
+            if self.debug : print '\tCheck for remote file %s existance executed '%f_tocopy  
+            if self.debug : print '\twith exit code = %s '%check  
         except OperationException, ex:
             msg  = 'ERROR: problems checking if file %s already exist'%filetocopy
             msg += str(ex)
             if self.debug :
-                dbgmsg  = '\t'+msg+'\n\t'+str(ex.detail)+'\n'
-                dbgmsg += '\t'+str(ex.output)+'\n'
+                dbgmsg  = '\t'+msg+'\n\t'+str(ex.detail)+''
+                dbgmsg += '\t'+str(ex.output)+''
                 print dbgmsg
             raise Exception(msg)
         except WrongOption, ex:
             msg  = 'ERROR problems checking if file % already exists'%filetocopy
             msg += str(ex)
             if self.debug :
-                msg += '\t'+msg+'\n\t'+str(ex.detail)+'\n'
-                msg += '\t'+str(ex.output)+'\n'
+                msg += '\t'+msg+'\n\t'+str(ex.detail)+''
+                msg += '\t'+str(ex.output)+''
             raise Exception(msg)
         except MissingDestination, ex:
             msg  ='ERROR problems checking if destination file % exists'%filetocopy
             msg += str(ex)
-            if self.debug : print '\t'+msg+'\n\t'+str(ex.detail)+'\n'
+            if self.debug : print '\t'+msg+'\n\t'+str(ex.detail)+''
             raise Exception(msg)
         ## when the client commands are not found (wrong env or really missing)
         except MissingCommand, ex:
@@ -643,7 +648,7 @@ class cmscp:
         """
         call the copy API.
         """
-        if self.debug : print 'makeCopy():\n'
+        if self.debug : print 'makeCopy():'
         path = os.path.dirname(filetocopy)
         file_name =  os.path.basename(filetocopy)
         source_file = filetocopy
@@ -720,7 +725,7 @@ class cmscp:
             local_file_size = os.path.getsize( source_file ) 
             try:
                 remote_file_size = sbi_dest.getSize( dest_file, opt=option, tout = self.subprocesstimeout['size'] )
-                if self.debug : print '\t Check of remote size succeded for file %s\n'%dest_file
+                if self.debug : print '\t Check of remote size succeded for file %s'%dest_file
             except TransferException, ex:
                 msg  = "Problem checking the size of %s file" % filetocopy
                 msg += str(ex)
@@ -751,7 +756,7 @@ class cmscp:
     def removeFile( self, sbi_dest, filetocopy, option ):
         """  
         """  
-        if self.debug : print 'removeFile():\n'
+        if self.debug : print 'removeFile():'
         f_tocopy=filetocopy
         if self.dest_prot != 'local':f_tocopy = os.path.basename(filetocopy)
         try:
@@ -842,7 +847,7 @@ class cmscp:
         fp.write(str(txt))
         fp.close()
         if self.debug: 
-            print '--- reading cmscpReport.sh: \n'
+            print '--- reading cmscpReport.sh: '
             lp = open(outFile, "r")
             content = lp.read() 
             lp.close()

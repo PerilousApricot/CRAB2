@@ -44,7 +44,10 @@ class Scheduler :
                               'CONDOR'   : 'srm-lcg',  \
                               'RCONDOR'  : 'srm-lcg',  \
                               'SGE'      : 'srm-lcg', \
-                              'ARC'      : 'srm-lcg'
+                              'ARC'      : 'srm-lcg', \
+                              'PBSV2'    : 'rfio', \
+                              'PBSV2WITHSRM' : 'srm-lcg', \
+                              'PBSV2WITHLSTORE' : 'lstore', \
                             }
 
         self.protocolOpt = { 'rfio' : '', \

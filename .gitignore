@@ -1,0 +1,13 @@
+external/*.tgz
+crab.csh
+crab.sh
+external/OpenSSL/
+external/ProdCommon/BossLite/Scheduler/SchedulerPbsv2.py
+external/ProdCommon/BossLite/Scheduler/SchedulerPbsv2withlstore.py
+external/ProdCommon/BossLite/Scheduler/SchedulerPbsv2withsrm.py
+external/crablib/
+external/pbs_python/
+external/py2-pysqlite/
+external/py2-sqlalchemy/
+external/simplejson/
+external/sqlite/

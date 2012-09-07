@@ -782,7 +782,7 @@ class cmscp:
         jobStageInfo['reason']=reason
         if not self.params['for_lfn']: self.params['for_lfn']=''
         if not self.params['se_name']: self.params['se_name']=''
-        if not self.hostname: self.hostname=''
+        self.hostname = getattr(self, 'hostname', '')
         if (erCode != '0') and (erCode != '60308'):
            jobStageInfo['for_lfn']='/copy_problem/'
         else:   

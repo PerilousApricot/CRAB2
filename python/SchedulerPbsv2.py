@@ -19,7 +19,7 @@ import os,string
 # resources = resource_1=value,resource_2=value, etc [like qsub -l syntax]
 # workernodebase = /tmp (top level directory where CRAB should unpack on worker nodes. $HOME is a bad default for many)
 # hostname = hostname of submit host (only needed if you have trouble transferring stdout/stderr)
-
+# forceTransferFiles - if you're not running on a shared filesystem, set this to 1 to make the scheduler move files for you
 # NB: - the scheduler uses a wrapper script to create a local dir (see BossLite scheduler module)
 # Both wrapper stdout/stderr and job script output files are placed in your crab_*/res directory by default
 #
@@ -91,7 +91,7 @@ class SchedulerPbsv2(SchedulerLocal):
                } 
 		
 		# update parameters
-        for s in ('resources', 'queue', 'workernodebase', 'hostname'):
+        for s in ('resources', 'queue', 'workernodebase', 'hostname', 'forcetransferfiles'):
             params[s] = cfg_params.get( self.name().upper()+'.'+s,'' )
 
         return params

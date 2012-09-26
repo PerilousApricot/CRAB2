@@ -10,6 +10,8 @@ import re
 import Scram
 from Splitter import JobSplitter
 from Downloader import Downloader
+import GlobalDataService
+from ProdCommon.SiteDB.CmsSiteMapper import CmsSEMap
 try:
     import json
 except:
@@ -61,7 +63,7 @@ class Cmssw(JobType):
         self.tgzNameWithPath = common.work_space.pathForTgz()+self.tgz_name
         # set FJR file name
         self.fjrFileName = 'crab_fjr.xml'
-
+        self.global_data_service = self.cfg_params.get('CMSSW.global_data_service', 0)
         self.version = self.scram.getSWVersion()
         common.logger.log(10-1,"CMSSW version is: "+str(self.version))
         version_array = self.version.split('_')
@@ -410,13 +412,16 @@ class Cmssw(JobType):
 
 
         unsorted_sites = dataloc.getSites()
+        if self.global_data_service:
+            common.logger.info('Using global data service')
+            GlobalDataService.modifyPossibleBlockLocations( unsorted_sites )
+
         sites = self.filesbyblock.fromkeys(self.filesbyblock,'')
         for lfn in self.filesbyblock.keys():
             if unsorted_sites.has_key(lfn):
                 sites[lfn]=unsorted_sites[lfn]
             else:
                 sites[lfn]=[]
-
         if len(sites)==0:
             msg = 'ERROR ***: no location for any of the blocks of this dataset: \n\t %s \n'%datasetPath
             msg += "\tMaybe the dataset is located only at T1's (or at T0), where analysis jobs are not allowed\n"

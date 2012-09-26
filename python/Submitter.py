@@ -6,6 +6,7 @@ from ApmonIf import ApmonIf
 import time
 import socket
 import Scram
+import GlobalDataService
 from ProgressBar import ProgressBar
 from TerminalController import TerminalController
 try:
@@ -44,6 +45,7 @@ class Submitter(Actor):
         if string.lower(self.datasetPath)=='none':
             self.datasetPath = None
         self.scram = Scram.Scram(cfg_params)
+        self.global_data_service = cfg_params.get('CMSSW.global_data_service', 0)
         return
 
 #wmbs
@@ -68,6 +70,8 @@ class Submitter(Actor):
         if self.chosenJobsList != None:
             tmp_jList = self.chosenJobsList
         for job in common._db.getTask(tmp_jList).jobs:
+            if self.global_data_service:
+                GlobalDataService.modifyPossibleJobLocations( job )
             cleanedBlackWhiteList = self.blackWhiteListParser.cleanForBlackWhiteList(job['dlsDestination'])
             if (cleanedBlackWhiteList != '') or (self.datasetPath == None):
                 #if ( job.runningJob['status'] in ['C','RC'] and job.runningJob['statusScheduler'] in ['Created',None]):

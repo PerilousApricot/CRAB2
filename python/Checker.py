@@ -13,6 +13,8 @@ class Checker(Actor):
         self.datasetpath=self.cfg_params['CMSSW.datasetpath']
         if string.lower(self.datasetpath)=='none':
             self.datasetpath = None
+        self.global_data_service = self.cfg_params.get('CMSSW.global_data_service',0)
+
         return
 
     def run(self):

@@ -5,6 +5,7 @@ __version__ = "$Revision: 1.56 $"
 import common
 from crab_exceptions import *
 from crab_util import *
+import GlobalDataService
 
 from WMCore.DataStructs.File import File
 from WMCore.DataStructs.Fileset import Fileset
@@ -39,6 +40,9 @@ class JobSplitter:
         ## check if has been asked for a non default file to store/read analyzed fileBlocks
         defaultName = common.work_space.shareDir()+'AnalyzedBlocks.txt'
         self.fileBlocks_FileName = os.path.abspath(self.cfg_params.get('CMSSW.fileblocks_file',defaultName))
+        
+        self.global_data_service = int( self.cfg_params.get('CMSSW.global_data_service', 0) )
+        self.global_data_rewrite = int( self.cfg_params.get('CMSSW.global_data_rewrite', 1) )
 
 
     def checkUserSettings(self):
@@ -369,7 +373,10 @@ class JobSplitter:
         # skip check on  block with no sites  DD
         if noBboundary == 0 : self.checkBlockNoSite(blocks,jobsOfBlock,blockSites)
 
-       # prepare dict output
+        # prepare dict output
+        if self.global_data_service and self.global_data_rewrite:
+            for job in list_of_lists:
+                GlobalDataService.modifyJobFilenames( job )
         dictOut = {}
         dictOut['params']= ['InputFiles','MaxEvents','SkipEvents','InputBlocks']
         if self.useParent: dictOut['params']= ['InputFiles','ParentFiles','MaxEvents','SkipEvents','InputBlocks']
@@ -509,6 +516,10 @@ class JobSplitter:
                 jobDestination.append(res['locations'])
                 count +=1
         # prepare dict output
+        if self.global_data_service and self.global_data_rewrite:
+            for job in list_of_lists:
+                GlobalDataService.modifyJobFilenames( job )
+
         dictOut = {}
         dictOut['params']= ['InputFiles','MaxEvents','SkipEvents','InputBlocks']
         dictOut['args'] = list_of_lists
@@ -784,6 +795,9 @@ class JobSplitter:
                               (jobCount, lumisCreated))
 
         # Prepare dict output matching back to non-WMBS job creation
+        if self.global_data_service and self.global_data_rewrite:
+            for job in list_of_lists:
+                GlobalDataService.modifyJobFilenames( job )
         dictOut = {}
         dictOut['params'] = ['InputFiles', 'MaxEvents', 'SkipEvents', 'Lumis','InputBlocks']
         if self.useParent==1:

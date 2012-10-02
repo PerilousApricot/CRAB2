@@ -5,7 +5,7 @@ from ProdCommon.SiteDB.CmsSiteMapper import CmsSEMap
 data_service_prefix     = 'root://xrootd.unl.edu/'
 cms_se = CmsSEMap()
 # Sites that can handle being read FROM
-global_data_svc_hosts   = cms_se.match("T2_US_*","cmseos.fnal.gov")
+global_data_svc_hosts   = cms_se.match("T2_US_*,cmseos.fnal.gov,T1_US_*")
 # Sites that can have jobs sent TO them
 global_data_svc_targets = cms_se.match("T2_US_*,T3_US_Omaha,T3_US_Vanderbilt_EC2")
 
